@@ -1,26 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import HomePage from './homePage'
+import Profile from './profile'
+import { Switch, Route, withRouter } from 'react-router-dom'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+class App extends React.Component {
+    state={
+      user: null
+    }
+
+  componentDidMount() {
+    if (localStorage.token) {
+      fetch('http://localhost:3000/profile',{
+        headers: {
+        'Authorization': `${localStorage.token}`
+    }
+      })
+      .then(res => res.json())
+      .then(user => this.setState({user: user}))
+    } else {
+      this.props.history.push('/profile')
+    }
 }
 
-export default App;
+
+  render() {
+    console.log(this.state.user)
+    return (
+      <Switch>
+        <Route path={'/profile'} component={Profile}/>
+        <Route path={'/'} component={HomePage}/>
+      </Switch>
+    )
+  }
+}
+
+export default withRouter(App);
