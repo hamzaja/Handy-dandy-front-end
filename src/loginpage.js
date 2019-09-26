@@ -26,7 +26,6 @@ class LoginPage extends Component {
     .then(data => {
       console.log(data)
       if (data.token) {
-        console.log(data, this.props)
         localStorage.token = data.token
         this.props.history.push('/profile')
       }
