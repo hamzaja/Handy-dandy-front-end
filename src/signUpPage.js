@@ -27,7 +27,7 @@ class SignUpPage extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(data => {
+    .then(data => { 
       if (data.token) {
         console.log(data, this.props)
         localStorage.token = data.token
@@ -41,7 +41,7 @@ class SignUpPage extends React.Component {
   render() {
     return (
       <form onChange={this.onChange} onSubmit={this.submit}>
-      signup
+      signup<br/>
       first_name<input value={this.state.first_name} type="text" name="first_name"/><br/>
       last_name<input value={this.state.last_name} type="text" name="last_name"/><br/>
       username<input value={this.state.username} type="text" name="username"/><br/>

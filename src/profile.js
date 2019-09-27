@@ -1,6 +1,28 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 class Profile extends React.Component {
+  state={
+    user: null
+  }
+
+componentDidMount() {
+  if (localStorage.token) {
+    fetch('http://localhost:3000/profile',{
+      headers: {
+      'Authorization': `${localStorage.token}`
+  }
+    })
+    .then(res => res.json())
+    .then(user => {
+      this.setState({user: user})
+      this.props.addCurrentUser(this.state.user)
+    })
+  }
+  else {
+    this.props.history.push('/')
+  }
+}
 
   render() {
     return (
@@ -10,5 +32,11 @@ class Profile extends React.Component {
     )
   }
 }
+const mapDispatchToProps = (dispatch) => {
 
-export default Profile;
+  return {
+    addCurrentUser: (userInfo) => {dispatch({type: "currentUser" , payload:userInfo})}
+  }
+}
+
+export default connect(null , mapDispatchToProps)(Profile);
