@@ -1,4 +1,5 @@
 import React from 'react';
+import Logout from './logout'
 import {connect} from 'react-redux'
 
 class Profile extends React.Component {
@@ -27,7 +28,8 @@ componentDidMount() {
   render() {
     return (
       <div>
-      profile
+        <Logout history={this.props.history} />
+        profile
       </div>
     )
   }
