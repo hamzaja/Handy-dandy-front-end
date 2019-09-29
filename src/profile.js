@@ -1,5 +1,6 @@
 import React from 'react';
 import Logout from './logout'
+import AllUsers from './profile/allusers'
 import {connect} from 'react-redux'
 
 class Profile extends React.Component {
@@ -21,7 +22,7 @@ componentDidMount() {
     })
   }
   else {
-    this.props.history.push('/')
+    this.props.history.push('/finish-sign-up')
   }
 }
 
@@ -30,6 +31,7 @@ componentDidMount() {
       <div>
         <Logout history={this.props.history} />
         profile
+        <AllUsers/>
       </div>
     )
   }

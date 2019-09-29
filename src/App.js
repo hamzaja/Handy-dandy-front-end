@@ -11,8 +11,8 @@ class App extends React.Component {
     return (
       <Switch>
         <Route path={'/profile'} component={Profile}/>
-        <Route path={'/'} component={HomePage}/>
         <Route path={'/finish-sign-up'} component={FinishSignUp}/>
+        <Route path={'/'} component={HomePage}/>
       </Switch>
     )
   }
