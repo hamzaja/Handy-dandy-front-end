@@ -1,6 +1,7 @@
 import React from 'react';
 import Logout from './logout'
 import AllUsers from './profile/allusers'
+import MyBookings from './profile/mybookings'
 import {connect} from 'react-redux'
 
 class Profile extends React.Component {
@@ -27,11 +28,17 @@ componentDidMount() {
 }
 
   render() {
+    console.log(this.state.user)
     return (
       <div>
         <Logout history={this.props.history} />
         profile
         <AllUsers/>
+        {this.state.user?
+          <MyBookings user={this.state.user}/>
+          :
+          <p>noo booking</p>
+        }
       </div>
     )
   }

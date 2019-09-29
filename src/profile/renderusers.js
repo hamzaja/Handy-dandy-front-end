@@ -5,7 +5,12 @@ class RenderUsers extends React.Component {
 
   renderUsers = () => {
     console.log(this.props.allusers)
-    return this.props.allusers.map(user => <EachUser user={user} key ={user.id}/> )
+    return this.props.allusers.map(user => <
+      EachUser
+      user={user}
+      key ={user.id}
+      profile={this.props.profile}
+      /> )
   }
 
   render() {

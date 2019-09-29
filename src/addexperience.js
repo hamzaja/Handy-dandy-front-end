@@ -11,7 +11,7 @@ class AddExperience extends React.Component {
     this.setState({experience: e.target.value})
   }
 
-  submit = (e) => { 
+  submit = (e) => {
     e.preventDefault()
     fetch("http://localhost:3000/user_skills",{
       method:'POST',
