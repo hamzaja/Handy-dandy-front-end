@@ -1,7 +1,8 @@
 import React from 'react';
+import {connect} from 'react-redux'
 
 class SignUpPage extends React.Component {
-  state={
+  state = {
     first_name: '',
     last_name: '',
     username: '',
@@ -27,12 +28,23 @@ class SignUpPage extends React.Component {
       body: JSON.stringify(this.state)
     })
     .then(res => res.json())
-    .then(data => { 
+    .then(data => {
       if (data.token) {
         console.log(data, this.props)
         localStorage.token = data.token
-        this.props.history.push('/profile')
+        this.props.history.push('/finish-sign-up')
+
+        fetch('http://localhost:3000/profile',{
+          headers: {
+          'Authorization': `${localStorage.token}`
       }
+        })
+        .then(res => res.json())
+        .then(user => {
+          this.props.addCurrentUser(user)
+        })
+      }
+
     })
   }
 
@@ -54,4 +66,12 @@ class SignUpPage extends React.Component {
   }
 }
 
-export default SignUpPage;
+const mapDispatchToProps = (dispatch) => {
+
+  return {
+    addCurrentUser: (userInfo) => {dispatch({type: "currentUser" , payload:userInfo})}
+  }
+}
+
+
+export default connect(null, mapDispatchToProps)(SignUpPage);
