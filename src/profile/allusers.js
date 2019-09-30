@@ -21,6 +21,7 @@ class AllUsers extends React.Component {
     .then(allusers => {
       allusers.map(user => {
         if (this.props.currentUser.id !== user.id){
+          this.props.addallusers(user)
           this.setState({allusers: [...this.state.allusers ,  user]})
         }
       })
@@ -57,5 +58,11 @@ const mapStateToProps = (state) => {
   }
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addallusers: (user) => {dispatch({type : "allusers",  payload:user })}
+  }
+}
 
-export default connect(mapStateToProps)(AllUsers);
+
+export default connect(mapStateToProps , mapDispatchToProps)(AllUsers);

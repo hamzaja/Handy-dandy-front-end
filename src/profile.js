@@ -76,7 +76,6 @@ componentDidMount() {
 
 
   render() {
-    console.log(this.state.whichButtonClicked)
     return (
       <div>
         <Logout history={this.props.history} />
