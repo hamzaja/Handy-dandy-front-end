@@ -26,7 +26,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <AllSkills history={this.props.history}/>
+        <AllSkills history={this.props.history} everyskill={this.state.skills}/>
       </div>
     )
   }

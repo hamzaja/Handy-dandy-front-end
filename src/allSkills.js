@@ -8,7 +8,9 @@ class AllSkill extends React.Component {
   state={
     userskills: [],
     next: true,
-    user: []
+    user: [],
+    makeANewSkill:false,
+    newSkill:''
   }
 
   componentDidMount() {
@@ -36,6 +38,33 @@ class AllSkill extends React.Component {
     }
   }
 
+ makeANewSkill = () => {
+   this.setState({makeANewSkill:true})
+ }
+
+ addNewSkill = (e) => {
+   this.setState({newSkill:e.target.value})
+ }
+
+ submit = () => {
+   fetch("http://localhost:3000/skills",{
+     method:'POST',
+     headers: {
+       'Authorization': `${localStorage.token}`,
+       'Content-Type': 'application/json',
+       'Accept': 'application/json'
+     },
+     body: JSON.stringify({
+       name: this.state.newSkill
+     })
+   })
+   .then(res => res.json())
+   .then(skill => {
+     this.setState({ makeANewSkill:false })
+     this.props.addSkillsToReducer(skill)
+   })
+ }
+
 
   render() {
 
@@ -43,16 +72,23 @@ class AllSkill extends React.Component {
       key={skill.name}
       skill={skill}
       userskills={this.click}/>)
-
     return (
       this.state.next?
       <div class= "allSkills" >
         <h1>please select all the skills you have</h1>
         <p>{renderSkill}</p>
+        {!this.state.makeANewSkill?
+        <button class="glow-on-hover" type="button"  onClick={this.makeANewSkill}>Not listed?</button>
+      :
+      <div>
+        <input type='text' value={this.state.newSkill} onChange={this.addNewSkill} />
+        <button class="glow-on-hover" type="button" onClick={this.submit}>Add</button>
+      </div>
+    }
         {(this.state.userskills.length!==0)?
           <button class="glow-on-hover" type="button"  onClick={this.nextClicked}>next</button>
           :
-          <button class="glow-on-hover" type="button"  onClick={this.noSkillClicked}>Continue Without any skill</button>
+          <p><button class="glow-on-hover" type="button"  onClick={this.noSkillClicked}>Continue Without any skill</button></p>
         }
       </div>
       :
@@ -71,4 +107,10 @@ class AllSkill extends React.Component {
     }
   }
 
-export default connect(mapStateToProps)(AllSkill);
+  const mapDispatchToProps = (dispatch) => {
+    return {
+      addSkillsToReducer: (skill) => {dispatch({type : "addskill",  payload:skill })}
+    }
+  }
+
+export default connect(mapStateToProps, mapDispatchToProps)(AllSkill);
