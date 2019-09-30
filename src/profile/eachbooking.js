@@ -16,7 +16,6 @@ class MyBookings extends React.Component {
 
 
   render() {
-    console.log(this.props.booking.other_user_id , this.state.helperInfo)
     return (
       <div className='each-booking'>
       <p>Date:{this.props.booking.date}</p>

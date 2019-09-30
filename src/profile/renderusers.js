@@ -41,6 +41,7 @@ class RenderUsers extends React.Component {
       user={user}
       key ={user.id}
       profile={this.props.profile}
+      
       /> )
   }
 
