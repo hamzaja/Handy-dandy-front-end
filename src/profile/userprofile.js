@@ -7,7 +7,17 @@ class RenderUsers extends React.Component {
   state={
     skill: [],
     time:'',
-    date:''
+    date:'',
+    connection:false
+  }
+
+
+  componentDidMount(){
+    this.props.currentUser.followed_users.map( connection => {
+      if (connection.followee_id === this.props.user.id){
+        this.setState({connection:true})
+      }
+    })
   }
 
   renderSkills = () => {
@@ -55,14 +65,40 @@ class RenderUsers extends React.Component {
     .then(window.location.reload())
   }
 
+  addConnection=()=>{
+    fetch("http://localhost:3000/connections",{
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'Authorization': `${localStorage.token}`
+      },
+      body: JSON.stringify({
+        'follower_id': this.props.currentUser.id,
+        'followee_id': this.props.user.id,
+      })
+    }).then(res => res.json())
+    .then(connection => {
+      this.setState({connection:true})
+    })
+    }
+
+
 
   render() {
     return (
-      <div>
+      <div className="userShowPageDiv">
       <p><strong>First Name</strong>: {this.props.user.first_name} </p>
       <p><strong>Last Name:</strong> {this.props.user.last_name} </p>
       <p><strong>Username: </strong>{this.props.user.username} </p>
       <p><strong>Avalability:</strong> {this.props.user.avalability} </p>
+      {!this.state.connection?
+        <button onClick={this.addConnection} className="glow-on-hover" type="button">Add {this.props.user.first_name} as connection </button>
+        :
+        <p>{this.props.user.first_name} is a connection</p>
+      }
+      <button onClick={this.props.backButton} className="glow-on-hover" type="button">Send {this.props.user.first_name} a messages</button>
+
       {this.renderSkills()}
       {
         (this.state.skill.length!==0)?

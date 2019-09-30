@@ -398,3 +398,40 @@ a:hover:after{
   width: 100%;
 }
 /* top button ends */
+
+
+
+/* userShowPageDiv */
+
+  .userShowPageDiv{
+    position: fixed;
+    content: "";
+    top: 30%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+  }
+
+
+
+
+/* FollowedUsersDiv */
+
+  .FollowedUsersDiv{
+    position: fixed;
+    content: "";
+    top: 30%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* currentUserProfile */
+  .currentUserProfile{
+    position: fixed;
+    content: "";
+    top: 30%;
+    left:0%;
+    width: 100%;
+    height: 100%;
+  }
