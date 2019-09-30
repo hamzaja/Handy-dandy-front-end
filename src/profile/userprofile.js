@@ -23,6 +23,21 @@ class RenderUsers extends React.Component {
 
   makeABooking = (e) => {
     e.preventDefault()
+    // fetch("http://localhost:3000/bookings",{
+    //   method:'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Accept': 'application/json',
+    //     'Authorization': `${localStorage.token}`
+    //   },
+    //   body: JSON.stringify({
+    //     'other_user_id': this.props.currentUser.id,
+    //     'this_user_id': this.props.user.id,
+    //     'time': this.state.time,
+    //     'date': this.state.date
+    //   })
+    // })
+
     fetch("http://localhost:3000/bookings",{
       method:'POST',
       headers: {
@@ -40,6 +55,7 @@ class RenderUsers extends React.Component {
     .then(window.location.reload())
   }
 
+
   render() {
     return (
       <div>
@@ -56,7 +72,10 @@ class RenderUsers extends React.Component {
           <input type="submit" value='Book User'/>
         </form>
         :
+        <div>
         <h2>please choose a skill you need help with and hire this person...</h2  >
+        <button onClick={this.props.backButton} className="glow-on-hover" type="button">Or Go Back </button>
+        </div>
       }
       </div>
     )

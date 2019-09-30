@@ -1,6 +1,7 @@
 import React from 'react';
 import RenderUsers from './renderusers'
 import UserProfile from './userprofile'
+import {connect} from 'react-redux'
 
 class AllUsers extends React.Component {
 
@@ -18,7 +19,11 @@ class AllUsers extends React.Component {
     })
     .then(res => res.json())
     .then(allusers => {
-      this.setState({allusers})
+      allusers.map(user => {
+        if (this.props.currentUser.id !== user.id){
+          this.setState({allusers: [...this.state.allusers ,  user]})
+        }
+      })
     })
   }
 
@@ -30,20 +35,27 @@ class AllUsers extends React.Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
 
     !this.state.profile?
       <div>
-      <RenderUsers allusers={this.state.allusers} profile={this.profile} />
+      <RenderUsers allusers={this.state.allusers} profile={this.profile} history={this.props.history} />
       </div>
       :
       <div>
-      <UserProfile user={this.state.user} allusers={this.allusers} />
+      <UserProfile user={this.state.user} allusers={this.allusers} backButton={this.allusers}  />
       </div>
     )
   }
 }
 
 
-export default AllUsers;
+
+const mapStateToProps = (state) => {
+  return {
+  currentUser: state.currentUser
+  }
+}
+
+
+export default connect(mapStateToProps)(AllUsers);

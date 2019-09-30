@@ -1,12 +1,21 @@
 import React from 'react';
 import Logout from './logout'
 import AllUsers from './profile/allusers'
+import Buttons from './profile/buttons'
 import MyBookings from './profile/mybookings'
+import CurrentUserProfile from './profile/currentuserprofile'
+import Messages from './profile/messages'
+import Connections from './profile/connections'
+
+
 import {connect} from 'react-redux'
 
 class Profile extends React.Component {
+
   state={
-    user: null
+    user: null,
+    currentUserProfile:false,
+    whichButtonClicked: null
   }
 
 componentDidMount() {
@@ -27,12 +36,66 @@ componentDidMount() {
   }
 }
 
+  currentUserProfile = () => {
+    return <div><CurrentUserProfile/></div>
+  }
+
+  profile=()=>{
+    this.setState({whichButtonClicked:'profile'})
+  }
+  homePage=()=>{
+    this.setState({whichButtonClicked:null})
+  }
+  messages=()=>{
+    this.setState({whichButtonClicked:'messages'})
+  }
+  connections=()=>{
+    this.setState({whichButtonClicked:'connections'})
+  }
+  bookings=()=>{
+    this.setState({whichButtonClicked:'bookings'})
+  }
+
+  whichPageToShow=()=>{
+    const {whichButtonClicked } = this.state
+    if (whichButtonClicked === 'profile'){
+      return <CurrentUserProfile/>
+    }
+    if (whichButtonClicked === 'messages'){
+      return <Messages/>
+    }
+    if (whichButtonClicked === 'connections'){
+      return <Connections/>
+    }
+    if (whichButtonClicked === 'bookings'){
+      return <MyBookings user={this.state.user} />
+    }
+  }
+
+
+
+
   render() {
-    console.log(this.state.user)
+    console.log(this.state.whichButtonClicked)
     return (
       <div>
         <Logout history={this.props.history} />
-        <AllUsers/>
+        <Buttons
+         profile={this.profile}
+         homePage={this.homePage}
+         messages={this.messages}
+         connections={this.connections}
+         bookings={this.bookings}
+         />
+        {this.state.whichButtonClicked?
+          this.whichPageToShow()
+          :
+          this.state.currentUserProfile?
+          <CurrentUserProfile/>
+          :
+          <AllUsers  history={this.props.history} />
+        }
+
         {this.state.user?
           <MyBookings user={this.state.user}/>
           :
