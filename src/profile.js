@@ -32,7 +32,6 @@ componentDidMount() {
     return (
       <div>
         <Logout history={this.props.history} />
-        profile
         <AllUsers/>
         {this.state.user?
           <MyBookings user={this.state.user}/>

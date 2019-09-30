@@ -25,14 +25,13 @@ class SkillExperience extends React.Component {
   render() {
     return (
       <div>
-      <AddExperience skill={this.props.skills[this.state.index]} user={this.props.user} />
-      {
-      this.state.allSkillsDone ?
-
-        <button onClick={this.doneWithSignup}>Done</button>
-        :
-        <button onClick={this.nextIndex}>Next</button>
-      }
+      <AddExperience
+      skill={this.props.skills[this.state.index]}
+       user={this.props.user}
+       nextIndex={this.nextIndex}
+       lastskill={this.props.skills[this.props.skills.length-1]}
+       done={this.doneWithSignup}
+       />
       </div>
     )
   }

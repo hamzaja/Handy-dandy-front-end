@@ -43,10 +43,10 @@ class RenderUsers extends React.Component {
   render() {
     return (
       <div>
-      <p>first_name: {this.props.user.first_name} </p>
-      <p>last_name: {this.props.user.last_name} </p>
-      <p>user_name: {this.props.user.username} </p>
-      <p>avalability: {this.props.user.avalability} </p>
+      <p><strong>First Name</strong>: {this.props.user.first_name} </p>
+      <p><strong>Last Name:</strong> {this.props.user.last_name} </p>
+      <p><strong>Username: </strong>{this.props.user.username} </p>
+      <p><strong>Avalability:</strong> {this.props.user.avalability} </p>
       {this.renderSkills()}
       {
         (this.state.skill.length!==0)?
@@ -56,7 +56,7 @@ class RenderUsers extends React.Component {
           <input type="submit" value='Book User'/>
         </form>
         :
-        <p>please choose a skill you need help with and hire this person...</p  >
+        <h2>please choose a skill you need help with and hire this person...</h2  >
       }
       </div>
     )

@@ -8,15 +8,19 @@ class RenderUsers extends React.Component {
   }
 
   renderSkills = () => {
-    return this.props.user.skills.map(skill => <EachUserSkills skill={skill} />)
+    return this.props.user.skills.map((skill, index) => <EachUserSkills skillInfo={this.skillInfo} key={index} skill={skill} />)
+  }
+
+  skillInfo = (info) => {
+    console.log(info)
   }
 
   render() {
     return (
       <div>
-      <p>Each User {this.props.user.username} </p>
+      <h1>{this.props.user.username} </h1>
       {this.renderSkills()}
-      <button onClick={()=> this.props.profile(this.props.user)}>view profile  </button>
+      <button className="glow-on-hover" type="button"  onClick={()=> this.props.profile(this.props.user)}>view profile  </button>
       </div>
     )
   }

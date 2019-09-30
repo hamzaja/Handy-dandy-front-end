@@ -26,12 +26,16 @@ class AllSkill extends React.Component {
   nextClicked = () => {
     this.setState({next: false})
     }
+  noSkillClicked = () => {
+    this.props.history.push('./profile')
+  }
 
   click = (skill) => {
     if (!this.state.userskills.includes(skill)) {
       this.setState({userskills: [...this.state.userskills, skill]})
     }
   }
+
 
   render() {
 
@@ -42,10 +46,14 @@ class AllSkill extends React.Component {
 
     return (
       this.state.next?
-      <div>
-        <p>please select all the skills you have</p>
+      <div class= "allSkills" >
+        <h1>please select all the skills you have</h1>
         <p>{renderSkill}</p>
-        <button onClick={this.nextClicked}>next</button>
+        {(this.state.userskills.length!==0)?
+          <button class="glow-on-hover" type="button"  onClick={this.nextClicked}>next</button>
+          :
+          <button class="glow-on-hover" type="button"  onClick={this.noSkillClicked}>Continue Without any skill</button>
+        }
       </div>
       :
       <div>

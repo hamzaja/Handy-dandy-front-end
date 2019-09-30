@@ -5,7 +5,7 @@ class RenderUsers extends React.Component {
   render() {
     return (
       <div>
-        <p onClick={()=>this.props.skillInfo(this.props.skill)}>Skill: {this.props.skill.name} </p>
+        <p onClick={()=>this.props.skillInfo(this.props.skill)}><strong>Skill:</strong> {this.props.skill.name} </p>
       </div>
     )
   }

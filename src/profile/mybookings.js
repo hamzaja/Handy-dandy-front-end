@@ -11,11 +11,12 @@ class MyBookings extends React.Component {
     console.log(this.props.user.booked_users)
     return (
     this.props.user.booked_users?
-      <div>
+      <div className = 'my-bookings' >
+        <h1>Bookings</h1>
         {this.renderBooking()}
       </div>
         :
-        <div>you currently have no booking</div>
+        <div className='my-bookings'>you currently have no booking</div>
     )
   }
 }

@@ -12,7 +12,6 @@ class AddExperience extends React.Component {
   }
 
   submit = (e) => {
-    e.preventDefault()
     fetch("http://localhost:3000/user_skills",{
       method:'POST',
       headers: {
@@ -27,18 +26,24 @@ class AddExperience extends React.Component {
           experience: this.state.experience
         })
     })
+    .then(res => res.json())
+    .then( () =>
+      {this.setState({experience:''})
+      this.props.nextIndex()}
+    )
   }
 
   render() {
-    console.log(this.props , this.state.experience )
     return (
       <div>
-      {this.props.skill.name}
+      <h1>{this.props.skill.name.toUpperCase()}</h1>
       <p>please tell us how much experience you got in {this.props.skill.name}</p>
-      <form onSubmit={this.submit}>
       <input type='text' value={this.state.experience} onChange={this.experience} />
-      <input type='submit'/>
-      </form>
+      {(this.props.lastskill.id === this.props.skill.id )?
+        <button class="glow-on-hover" type="button" onClick={()=>{return (this.submit() , this.props.done())}}>Done</button>
+        :
+        <button class="glow-on-hover" type="button" onClick={this.submit}>Next</button>
+      }
       </div>
     )
   }
