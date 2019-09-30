@@ -12,6 +12,11 @@ const reducer = (state = intialState , action ) => {
     case "allSkills":
       return {...state , allSkills:action.payload}
 
+    case 'addskill':
+      let newSkill = action.payload
+      let newArray = [...state.allSkills, newSkill]
+      return {...state, allSkills: newArray}
+
     default:
       return state
 

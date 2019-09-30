@@ -26,12 +26,12 @@ class SkillExperience extends React.Component {
     return (
       <div>
       <AddExperience
-      skill={this.props.skills[this.state.index]}
+       skill={this.props.skills[this.state.index]}
        user={this.props.user}
        nextIndex={this.nextIndex}
        lastskill={this.props.skills[this.props.skills.length-1]}
        done={this.doneWithSignup}
-       />
+      />
       </div>
     )
   }
