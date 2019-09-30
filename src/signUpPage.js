@@ -52,16 +52,18 @@ class SignUpPage extends React.Component {
 
   render() {
     return (
-      <form onChange={this.onChange} onSubmit={this.submit}>
-      signup<br/>
-      first_name<input value={this.state.first_name} type="text" name="first_name"/><br/>
-      last_name<input value={this.state.last_name} type="text" name="last_name"/><br/>
-      username<input value={this.state.username} type="text" name="username"/><br/>
-      email<input value={this.state.email} type="text" name="email"/><br/>
-      password<input value={this.state.password} type="text" name="password"/><br/>
-      avalability<input value={this.state.avalability} type="text" name="avalability"/><br/>
+      <div class = 'signup'>
+      <form onChange={this.onChange} onSubmit={this.submit} >
+      <h1>Sign up</h1>
+      First name : <input value={this.state.first_name} type="text" name="first_name"/><br/>
+      Last name : <input value={this.state.last_name} type="text" name="last_name"/><br/>
+      Username : <input value={this.state.username} type="text" name="username"/><br/>
+      Email : <input value={this.state.email} type="text" name="email"/><br/>
+      Password : <input value={this.state.password} type="text" name="password"/><br/>
+      Avalability : <input value={this.state.avalability} type="text" name="avalability"/><br/>
       <input type="submit" />
       </form>
+      </div>
     )
   }
 }
