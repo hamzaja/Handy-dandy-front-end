@@ -258,7 +258,7 @@ input[type=time]{
 /* log-out-div */
 .log-out-div{
 
-   position:fixed;
+   position:absolute;
    right:10px;
    top:5px;
 }
@@ -328,31 +328,31 @@ body{
 
 /* top buttons */
 .wrapper1{
-  position: fixed;
+  position: absolute;
   top: 7%;
   left: 7%;
   transform: translate(-50%, -50%);
 }
 .wrapper2{
-  position: fixed;
+  position: absolute;
   top: 7%;
   left: 22%;
   transform: translate(-50%, -50%);
 }
 .wrapper3{
-  position: fixed;
+  position: absolute;
   top: 7%;
   left: 37%;
   transform: translate(-50%, -50%);
 }
 .wrapper4{
-  position: fixed;
+  position: absolute;
   top: 7%;
   left: 52%;
   transform: translate(-50%, -50%);
 }
 .wrapper5{
-  position: fixed;
+  position: absolute;
   top: 7%;
   left: 67%;
   transform: translate(-50%, -50%);

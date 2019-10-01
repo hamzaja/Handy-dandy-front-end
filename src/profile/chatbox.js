@@ -1,17 +1,25 @@
 import React from 'react';
+import ShowMessages from './showmessages'
+import {connect} from 'react-redux'
 
 class ChatBox extends React.Component {
+
+
+
   render() {
-
-
     return (
       <div>
-        <input type='text' onChange={this.addNewSkill} />
-        <button class="glow-on-hover" type="button" onClick={this.submit}>Send</button>
+        gvnbhgjbknl
       </div>
     )
   }
 }
 
 
-export default ChatBox;
+const mapStateToProps = (state) => {
+  return {
+  currentUser: state.currentUser
+  }
+}
+
+export default connect(mapStateToProps)(ChatBox);
