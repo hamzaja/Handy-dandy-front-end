@@ -66,19 +66,18 @@ class Messages extends React.Component {
 
 
   render() {
-    console.log(this.state.messageBox)
     return (
-    <div>
-      <div>
+    <div >
+      <div className="messagePeopleName">
       please click on any user you want to chat with
-      {this.showUserNames()}
+      <h2>{this.showUserNames()}</h2>
       </div>
-      <div>
-        <h1>ChatBox</h1>
+      <div className="chatroom" >
         {this.state.messageBox?
+          <div><div className="chattingWithUserMsg">You are chatting with: {this.state.otherUser.first_name}</div>
           <ShowMessages
            messageBox={this.state.messageBox}
-           messages={this.state.messages}/>
+           messages={this.state.messages}/></div>
           :
           null
         }

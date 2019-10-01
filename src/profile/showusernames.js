@@ -7,9 +7,11 @@ class ShowUserNames extends React.Component {
   }
 
   render() {
+    const {first_name,last_name} = this.props.user
     return (
-      <div onClick={()=>this.props.userToChatWith(this.props.user)} >
-      {this.props.user.first_name}<br/>
+      <div className="each-message-person-name" onClick={()=>this.props.userToChatWith(this.props.user) } >
+      {first_name.toUpperCase()} { last_name.toUpperCase()}
+      <hr/>
       </div>
     )
   }

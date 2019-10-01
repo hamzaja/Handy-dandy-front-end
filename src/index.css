@@ -59,10 +59,20 @@ p.main {
 
 
 input[type=text] {
+  align-items: center;
   width: 100%;
   padding: 10px 15px;
   margin: 8px 0;
   box-sizing: border-box;
+  width: 500px;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #A9A9A9;
+  border-radius: 3px;
+  padding: 10px 10px 10px 100px;
+  transition: all 0.1s ease-out;
+  box-shadow: 5px 5px 5px #FFFFFF;
 }
 
 input[type=text]:focus {
@@ -435,3 +445,111 @@ a:hover:after{
     width: 100%;
     height: 100%;
   }
+
+
+/* message page starts here  */
+  .messagePeopleName{
+    position: absolute;
+    content: "";
+    top: 15%;
+    right:85%;
+    width: 10%;
+    height: 100%;
+    background-color: orange;
+    color: red;
+    margin: 0 0.2em 0 0.2em;
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 1em 0;
+    box-shadow: 8px 8px 8px #000000;
+    opacity: 0.8;
+  }
+
+  .each-message-person-name{
+    border-radius: 25px;
+    background-color: lightgreen;
+    color: lightpink;
+    margin: 0 0.2em 0 0.2em;
+    text-align: center;
+    border: 0.5px solid #purple;
+
+  }
+
+  .messageSender{
+    position: relative;
+    overflow-y: auto;
+    height: 800px;
+    padding: 0.5em;
+    border: 2px solid #FFFFFF;
+    margin-top: 1em;
+    border-radius: 35px;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 8px 8px 8px #FFFFFF;
+    opacity: 0.7;
+  }
+
+  .chatroom {
+    padding: 0.5em;
+    border: 2px solid #FFFFFF;
+    margin-top: 9em;
+    border-radius: 25px;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 8px 8px 8px #FFFFFF;
+    opacity: 0.8;
+    width: 65vw;
+
+  }
+
+  .message-sender-receiver {
+	font-family: "Helvetica Neue";
+	font-size: 20px;
+  max-width: 70vw;
+	margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sender-receiver{
+  max-width: 15vw;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 24px;
+	padding: 0.25em;
+  border-radius: 25px;
+
+
+}
+
+.sender {
+	color: #FFFFFF;
+	background: #0B93F6;
+	align-self: flex-end;
+  border-radius: 25px;
+  box-shadow: 8px 8px 8px #000000;
+  width: 25vw;
+}
+
+.receiver {
+	background: lightyellow;
+	color: black;
+  border-radius: 25px;
+  box-shadow: 8px 8px 8px #000000;
+  text-shadow: 1px 1px 1px #F1F1F1;
+  width: 50vw;
+}
+.inputForMessage{
+  position: fixed;
+  right: 20%;
+  top: 90%;
+align-items: center;
+display: inline-block;
+box-sizing: border-box;
+outline: none;
+border: 1px solid #A9A9A9;
+border-radius: 3px;
+padding: 10px 10px 10px 100px;
+transition: all 0.1s ease-out;
+box-shadow: 5px 5px 5px #FFFFFF;}
+/* Message page end here */

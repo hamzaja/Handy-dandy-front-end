@@ -7,10 +7,16 @@ class CurrentUserProfile extends React.Component {
 
 
   render() {
-    const{username} = this.props.currentUser
+    const{first_name,username, last_name,avalability,email} = this.props.currentUser
     return (
       <div className="currentUserProfile" >
-      User Name : {username}
+
+          <p>First Name : {first_name}</p>
+          <p>last Name: {last_name}</p>
+          <p>User Name : {username}</p>
+          <p>Avalability : {avalability}</p>
+          <p>Email:{email}</p>
+
       </div>
     )
   }

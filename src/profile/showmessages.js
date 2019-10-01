@@ -57,10 +57,12 @@ class ShowMessages extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="messageSender">
         {this.renderMeesages()}
+        <div className="inputForMessage">
         <input type='text' value={this.state.message} onChange={this.messagetext} />
         <button className="glow-on-hover" type="button" onClick={this.submit}>Send</button>
+        </div>
       </div>
     )
   }
