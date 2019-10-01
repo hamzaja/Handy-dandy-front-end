@@ -21,7 +21,7 @@ class AllUsers extends React.Component {
     .then(allusers => {
       allusers.map(user => {
         if (this.props.currentUser.id !== user.id){
-          this.props.addallusers(user)
+            this.props.addallusers(user)            
           this.setState({allusers: [...this.state.allusers ,  user]})
         }
       })
@@ -54,7 +54,8 @@ class AllUsers extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-  currentUser: state.currentUser
+  currentUser: state.currentUser,
+  allUsersFromReducers: state.allUsers
   }
 }
 

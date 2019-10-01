@@ -7,7 +7,6 @@ class ShowUserNames extends React.Component {
   }
 
   render() {
-    console.log(this.props.user.first_name)
     return (
       <div onClick={()=>this.props.userToChatWith(this.props.user)} >
       {this.props.user.first_name}<br/>

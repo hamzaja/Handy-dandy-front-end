@@ -8,11 +8,10 @@ class MyBookings extends React.Component {
   }
 
   render() {
-    console.log(this.props.user.booked_users)
     return (
     this.props.user.booked_users?
       <div className = 'my-bookings' >
-        <h1>Bookings</h1>
+        <h1>My Bookings</h1>
         {this.renderBooking()}
       </div>
         :
