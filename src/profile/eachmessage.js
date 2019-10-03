@@ -4,10 +4,11 @@ class EachMessage extends React.Component {
 
 
   render() {
-    console.log(this.props.currentUser.id === this.props.message.user_id)
     return (
-      <div className={(this.props.currentUser.id === this.props.message.user_id)? 'otherUserMessage':"thisUserMessage"}>
-        {this.props.message.text}
+      <div className="message-sender-receiver">
+        <div className={(this.props.currentUser.id === this.props.message.user_id)? 'sender':"receiver"}>
+          <p className="sender-receiver" >{this.props.message.text}</p>
+        </div>
       </div>
     )
   }

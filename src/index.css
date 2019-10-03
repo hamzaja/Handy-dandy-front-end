@@ -59,10 +59,20 @@ p.main {
 
 
 input[type=text] {
+  align-items: center;
   width: 100%;
   padding: 10px 15px;
   margin: 8px 0;
   box-sizing: border-box;
+  width: 500px;
+  height: 40px;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #A9A9A9;
+  border-radius: 3px;
+  padding: 10px 10px 10px 100px;
+  transition: all 0.1s ease-out;
+  box-shadow: 5px 5px 5px #FFFFFF;
 }
 
 input[type=text]:focus {
@@ -275,7 +285,7 @@ body{
   margin:20px;
 }
 
-.button a{
+.Logout-a{
   color:white;
   font-family:Helvetica, sans-serif;
   font-weight:bold;
@@ -300,7 +310,7 @@ body{
   border-radius: 5px;
 }
 
-.button a:active{
+.Logout-a:active{
   top:10px;
   background-color:#F78900;
 
@@ -374,12 +384,12 @@ a{
   transition: all .35s;
 }
 
-a span{
+.navigationButtons-a span{
   position: relative;
   z-index: 2;
 }
 
-a:after{
+.navigationButtons-a:after{
   position: absolute;
   content: "";
   top: 0;
@@ -390,11 +400,11 @@ a:after{
   transition: all .50s;
 }
 
-a:hover{
+.navigationButtons-a:hover{
   color: #fff;
 }
 
-a:hover:after{
+.navigationButtons-a:hover:after{
   width: 100%;
 }
 /* top button ends */
@@ -404,12 +414,12 @@ a:hover:after{
 /* userShowPageDiv */
 
   .userShowPageDiv{
-    position: fixed;
+    position: absolute;
     content: "";
-    top: 30%;
+    top: 20%;
     left:0%;
     width: 100%;
-    height: 100%;
+    height: 80%;
   }
 
 
@@ -418,20 +428,191 @@ a:hover:after{
 /* FollowedUsersDiv */
 
   .FollowedUsersDiv{
-    position: fixed;
+    position: absolute;
     content: "";
-    top: 30%;
+    top: 20%;
     left:0%;
     width: 100%;
     height: 100%;
   }
 
+
+/* message page starts here  */
+  .messagePeopleName{
+    position: absolute;
+    content: "";
+    top: 15%;
+    right:85%;
+    width: 10%;
+    height: 100%;
+    background-color: orange;
+    color: red;
+    margin: 0 0.2em 0 0.2em;
+    border: 2px solid #FFFFFF;
+    border-radius: 25px;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000000;
+    padding: 1em 0;
+    box-shadow: 8px 8px 8px #000000;
+    opacity: 0.8;
+  }
+
+  .each-message-person-name{
+    border-radius: 25px;
+    background-color: lightgreen;
+    color: lightpink;
+    margin: 0 0.2em 0 0.2em;
+    text-align: center;
+    border: 0.5px solid #purple;
+
+  }
+
+  .messageSender{
+    position: relative;
+    overflow-y: auto;
+    height: 800px;
+    padding: 0.5em;
+    border: 2px solid #FFFFFF;
+    margin-top: 1em;
+    border-radius: 35px;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 8px 8px 8px #FFFFFF;
+    opacity: 0.7;
+  }
+
+  .chatroom {
+    padding: 0.5em;
+    border: 2px solid #FFFFFF;
+    margin-top: 9em;
+    border-radius: 25px;
+    text-shadow: 1px 1px 1px #000000;
+    box-shadow: 8px 8px 8px #FFFFFF;
+    opacity: 0.8;
+    width: 65vw;
+
+  }
+
+  .message-sender-receiver {
+	font-family: "Helvetica Neue";
+	font-size: 20px;
+  max-width: 70vw;
+	margin: 1em auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.sender-receiver{
+  max-width: 15vw;
+  word-wrap: break-word;
+  margin-bottom: 12px;
+  line-height: 24px;
+	padding: 0.25em;
+  border-radius: 25px;
+
+
+}
+
+.sender {
+	color: #FFFFFF;
+	background: #0B93F6;
+	align-self: flex-end;
+  border-radius: 25px;
+  box-shadow: 8px 8px 8px #000000;
+  width: 25vw;
+}
+
+.receiver {
+	background: lightyellow;
+	color: black;
+  border-radius: 25px;
+  box-shadow: 8px 8px 8px #000000;
+  text-shadow: 1px 1px 1px #F1F1F1;
+  width: 50vw;
+}
+.inputForMessage{
+  position: fixed;
+  right: 20%;
+  top: 90%;
+  align-items: center;
+  display: inline-block;
+  box-sizing: border-box;
+  outline: none;
+  border: 1px solid #A9A9A9;
+  border-radius: 3px;
+  padding: 10px 10px 10px 100px;
+  transition: all 0.1s ease-out;
+  box-shadow: 5px 5px 5px #FFFFFF;}
+/* Message page end here */
+
+
+/* home page */
+/* all user on homepage start*/
+.AllUsersOnHomePage{
+  position: absolute;
+  left:15%;
+  top:20%
+}
+.eachPersonOnHomePage{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 1300px;
+  width: 1200px  ;
+  margin: auto;
+  text-align: center;
+}
+p {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+}
+
+.searchbar{
+  position: absolute;
+  display: inline-block;
+  outline: none;
+  border: 1px solid #A9A9A9;
+  border-radius: 3px;
+  padding: 10px 250px 10px 100px;
+  transition: all 0.1s ease-out;
+  box-shadow: 10px 10px 10px red;
+}
+  .goback{
+    position: fixed;
+    top:80%;
+    left: 5%;
+  }
+
   /* currentUserProfile */
   .currentUserProfile{
-    position: fixed;
-    content: "";
+    position: absolute;
+    outline: none;
+    border: 1px solid #A9A9A9;
+    border-radius: 3px;
+    padding: 10px 250px 10px 100px;
+    transition: all 0.1s ease-out;
+    display: inline-block;
     top: 30%;
-    left:0%;
+    left:-10%;
     width: 100%;
     height: 100%;
+  }
+
+  hr{
+    width:20%;
+    background-color: lightgreen;
+    height: 1%
+  }
+  /* .bookingInApage{
+    position: fixed;
+    top:10%
+  } */
+
+  .formfordateandtime{
+  position: absolute;
+  left: 40%;
+  }
+
+  .connectionsDiv{
+  top: 10%;
+  left:-10%;
+
   }

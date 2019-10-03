@@ -29,6 +29,7 @@ componentDidMount() {
     .then(user => {
       this.setState({user: user})
       this.props.addCurrentUser(this.state.user)
+      this.props.bookings(user.booked_users)
     })
   }
   else {
@@ -52,9 +53,7 @@ componentDidMount() {
   connections=()=>{
     this.setState({whichButtonClicked:'connections'})
   }
-  bookings=()=>{
-    this.setState({whichButtonClicked:'bookings'})
-  }
+
 
   whichPageToShow=()=>{
     const {whichButtonClicked } = this.state
@@ -67,24 +66,21 @@ componentDidMount() {
     if (whichButtonClicked === 'connections'){
       return <Connections/>
     }
-    if (whichButtonClicked === 'bookings'){
-      return <MyBookings user={this.state.user} />
-    }
   }
+
 
 
 
 
   render() {
     return (
-      <div>
+      <div >
         <Logout history={this.props.history} />
         <Buttons
          profile={this.profile}
          homePage={this.homePage}
          messages={this.messages}
          connections={this.connections}
-         bookings={this.bookings}
          />
         {this.state.whichButtonClicked?
           this.whichPageToShow()
@@ -96,7 +92,7 @@ componentDidMount() {
         }
 
         {this.state.user?
-          <MyBookings user={this.state.user}/>
+          <div className="bookingInApage"><MyBookings user={this.state.user}/></div>
           :
           <p>noo booking</p>
         }
@@ -107,7 +103,8 @@ componentDidMount() {
 const mapDispatchToProps = (dispatch) => {
 
   return {
-    addCurrentUser: (userInfo) => {dispatch({type: "currentUser" , payload:userInfo})}
+    addCurrentUser: (userInfo) => {dispatch({type: "currentUser" , payload:userInfo})},
+    bookings:(bookings) =>{dispatch({type:"bookings", payload:bookings})}
   }
 }
 

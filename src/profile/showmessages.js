@@ -11,15 +11,21 @@ class ShowMessages extends React.Component {
 
 
   componentDidMount(){
-    console.log(this.props.messageBox.id);
-    fetch(`http://localhost:3000/user_messages/${this.props.messageBox.id}`,{
-      headers: {
-        "Authorization":`${localStorage.token}`
-      }
-    })
-    .then(res => res.json())
-    .then(messages=>this.setState({messages}))
+    console.log('abc')
+    this.interval = setInterval(() => {
+      fetch(`http://localhost:3000/user_messages/${this.props.messageBox.id}`,{
+        headers: {
+          "Authorization":`${localStorage.token}`
+        }
+      })
+      .then(res => res.json())
+      .then(messages=>this.setState({messages}))
+    }, 1000);
   }
+
+  componentWillUnmount() {
+  clearInterval(this.interval);
+}
 
     renderMeesages=()=>{
       return this.state.messages.map(message=><EachMessage message={message} currentUser={this.props.currentUser} />)
@@ -57,10 +63,12 @@ class ShowMessages extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="messageSender">
         {this.renderMeesages()}
+        <div className="inputForMessage">
         <input type='text' value={this.state.message} onChange={this.messagetext} />
         <button className="glow-on-hover" type="button" onClick={this.submit}>Send</button>
+        </div>
       </div>
     )
   }
