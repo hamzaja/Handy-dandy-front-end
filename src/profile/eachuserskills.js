@@ -24,12 +24,14 @@ class RenderUsers extends React.Component {
   }
 
   render() {
-
+    console.log(this.state.user)
     return (
-      <div>
-        <p onClick={()=>this.props.skillInfo(this.props.skill)}><strong>
-        Skill:</strong> {this.props.skill.name}
-        , experience:{this.state.user[0]? this.state.user[0].experience :null }</p>
+      <div onClick={()=>this.props.skillInfo(this.props.skill)}>
+        <p>
+          <strong>Skill:</strong>  {this.props.skill.name}
+           <strong> 🛠 Experience:</strong>{this.state.user[0]? this.state.user[0].experience :null }
+           <strong> 💰 Rate/hour: </strong> {this.state.user[0]? this.state.user[0].hourly_price :null }
+        </p>
       </div>
     )
   }

@@ -74,7 +74,7 @@ componentDidMount() {
 
   render() {
     return (
-      <div >
+      <div className="mainDiv" >
         <Logout history={this.props.history} />
         <Buttons
          profile={this.profile}

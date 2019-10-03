@@ -7,12 +7,14 @@ html,body {
   flex-wrap: wrap;
   align-items: center;
   font-family: 'Open Sans Condensed', sans-serif;
-
 }
 
 .col {
   height: 100%;
 }
+
+
+
 
 div[class*=container] {
   text-align: center;
@@ -36,11 +38,27 @@ p.main {
 }
 
 
+.HomePage{
+
+}
+
+.intropage{
+  background-image: url("https://cdn.dribbble.com/users/1023572/screenshots/5059619/maint_wip.gif");
+  position: fixed;
+  width: 63.5%;
+  height: 100%;
+  right: 36.8%;
+  color: White
+
+}
+
 
 /* ------------ login page ---------------- */
 .login {
+  background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg");
+  color: blue;
   position: absolute;
-  right: 5%;
+  right: 0%;
   width: 35%;
   border: 3px solid #73AD21;
   padding: 10px;
@@ -48,9 +66,11 @@ p.main {
 
 /* ------------ sign up page ---------------- */
 .signup {
-  position: absolute;
-  top: 42%;
-  right: 5%;
+  background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg");
+  position: absolute ;
+  color: brown;
+  top: 40%;
+  right: 0%;
   width: 35%;
   border: 3px solid #73AD21;
   padding: 10px;
@@ -554,13 +574,13 @@ a{
 }
 .eachPersonOnHomePage{
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  max-width: 1300px;
-  width: 1200px  ;
+  max-width: 900px;
+  width: 850px  ;
   margin: auto;
   text-align: center;
 }
 p {
-  text-decoration: none;
+  /* text-decoration: underline; */
   font-size: 20px;
   color: black;
 }
@@ -573,7 +593,7 @@ p {
   border-radius: 3px;
   padding: 10px 250px 10px 100px;
   transition: all 0.1s ease-out;
-  box-shadow: 10px 10px 10px red;
+  box-shadow: 10px 10px 10px skyblue;
 }
   .goback{
     position: fixed;
@@ -597,9 +617,9 @@ p {
   }
 
   hr{
-    width:20%;
-    background-color: lightgreen;
-    height: 1%
+    width:25%;
+    background-color: lightpink;
+    height: 0.157%
   }
   /* .bookingInApage{
     position: fixed;
@@ -616,3 +636,6 @@ p {
   left:-10%;
 
   }
+  /* .mainDiv{
+    background-image: url("https://payload.cargocollective.com/1/2/76113/11873586/Animal-Workers-Loram_670.jpg");
+  } */
