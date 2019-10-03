@@ -7,8 +7,8 @@ class HomePage extends React.Component {
   render() {
     return (
       <div>
-      <LoginPage history={this.props.history} />
-      <SignUpPage history={this.props.history}/>
+        <LoginPage history={this.props.history} />
+        <SignUpPage history={this.props.history}/>
       </div>
     )
   }

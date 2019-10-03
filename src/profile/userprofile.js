@@ -21,7 +21,10 @@ class RenderUsers extends React.Component {
   }
 
   renderSkills = () => {
-    return this.props.user.skills.map(skill => <EachUserSkills skill={skill} skillInfo={this.skillInfo} />)
+    return this.props.user.skills.map(skill => <EachUserSkills
+       skill={skill}
+       skillInfo={this.skillInfo}
+       user_id={this.props.user.id} />)
   }
   skillInfo=(skill)=>{
     this.setState({skill})
@@ -88,9 +91,9 @@ class RenderUsers extends React.Component {
   render() {
     return (
       <div className="userShowPageDiv">
-      <p><strong>First Name</strong>: {this.props.user.first_name} </p>
+      <p><strong>Username: </strong>{this.props.user.username} </p><hr/>
       <p><strong>Last Name:</strong> {this.props.user.last_name} </p>
-      <p><strong>Username: </strong>{this.props.user.username} </p>
+      <p><strong>First Name</strong>: {this.props.user.first_name} </p>
       <p><strong>Avalability:</strong> {this.props.user.avalability} </p>
       {!this.state.connection?
         <button onClick={this.addConnection} className="glow-on-hover" type="button">Add {this.props.user.first_name} as connection </button>
@@ -102,15 +105,15 @@ class RenderUsers extends React.Component {
       {this.renderSkills()}
       {
         (this.state.skill.length!==0)?
-        <form onChange={this.onChange} onSubmit={this.makeABooking}>
+        <form className="formfordateandtime" onChange={this.onChange} onSubmit={this.makeABooking}>
           <input type='time' name='time'/>
           <input type='date' name='date'/>
           <input type="submit" value='Book User'/>
         </form>
         :
         <div>
-        <h2>please choose a skill you need help with and hire this person...</h2  >
-        <button onClick={this.props.backButton} className="glow-on-hover" type="button">Or Go Back </button>
+        <h2>please Click on a skill you need help with and hire this person...</h2  >
+        <button onClick={this.props.backButton} className="glow-on-hover goback" type="button">Or Go Back </button>
         </div>
       }
       </div>
@@ -123,5 +126,10 @@ const mapStateToProps = (state) => {
   currentUser: state.currentUser
   }
 }
+const mapDispatchToProps = (dispatch) => {
+  return {
+    bookings: (bookings) => {dispatch({type : "bookings",  payload:bookings })}
+  }
+}
 
-export default connect(mapStateToProps)(RenderUsers);
+export default connect(mapStateToProps , mapDispatchToProps)(RenderUsers);

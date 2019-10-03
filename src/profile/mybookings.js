@@ -1,5 +1,7 @@
 import React from 'react';
-import EachBooking from './eachbooking'
+import EachBooking from './eachbooking';
+import {connect} from 'react-redux'
+
 
 class MyBookings extends React.Component {
 
@@ -8,6 +10,7 @@ class MyBookings extends React.Component {
   }
 
   render() {
+    console.log(this.props.bookings)
     return (
     this.props.user.booked_users?
       <div className = 'my-bookings' >
@@ -19,6 +22,10 @@ class MyBookings extends React.Component {
     )
   }
 }
+const mapStateToProps = (state) => {
+  return {
+  bookings: state.bookings
+  }
+}
 
-
-export default MyBookings;
+export default connect(mapStateToProps)(MyBookings);

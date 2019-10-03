@@ -17,10 +17,14 @@ class RenderFollowedUsers extends React.Component {
   }
 
   render() {
-    const {username} = this.state.user
+    const {username , first_name , last_name, avalability} = this.state.user
     return (
-      <div >
-        <p> username: {username} </p>
+      <div className="connectionsDiv" >
+        <p> First Name: {first_name} </p>
+        <p> Last Name: {last_name} </p>
+        <p> Username:{username}</p>
+        <p>Avalability:{avalability}</p>
+        <hr/>
       </div>
     )
   }

@@ -1,7 +1,8 @@
 const intialState =  {
   currentUser: [],
   allSkills: [],
-  allUsers:[]
+  allUsers:[],
+  bookings:[]
 }
 const reducer = (state = intialState , action ) => {
 
@@ -22,6 +23,15 @@ const reducer = (state = intialState , action ) => {
       let users = action.payload
       let newUserArray =  [...state.allUsers, users]
     return { ...state, allUsers: newUserArray }
+
+    case "removeusers":
+      return {...state, allUsers:"" }
+
+    case "bookings":
+      let booking = action.payload
+      let newBookingArray = [...state.bookings,booking]
+      return {...state, bookings:newBookingArray}
+
 
     default:
       return state

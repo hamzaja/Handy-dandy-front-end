@@ -15,7 +15,7 @@ class Logout extends React.Component {
       <div className='log-out-div' onClick={this.click}>
         <div ontouchstart="">
           <div className="button">
-            <a href="#">Log Out</a>
+            <a className="Logout-a" href="#">Log Out</a>
           </div>
         </div>
       </div>
