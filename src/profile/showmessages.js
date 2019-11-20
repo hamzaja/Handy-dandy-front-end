@@ -11,9 +11,8 @@ class ShowMessages extends React.Component {
 
 
   componentDidMount(){
-    console.log('abc')
     this.interval = setInterval(() => {
-      fetch(`http://localhost:3000/user_messages/${this.props.messageBox.id}`,{
+      fetch(`https://handy-dandy-app.herokuapp.com/user_messages/${this.props.messageBox.id}`,{
         headers: {
           "Authorization":`${localStorage.token}`
         }
@@ -39,7 +38,7 @@ class ShowMessages extends React.Component {
 
     submit = (e) => {
       this.setState({message: ''})
-      fetch("http://localhost:3000/user_messages",{
+      fetch("https://handy-dandy-app.herokuapp.com/user_messages",{
         method: 'POST',
         headers:{
           'Content-Type':'application/json',

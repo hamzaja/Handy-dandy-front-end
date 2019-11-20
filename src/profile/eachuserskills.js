@@ -8,7 +8,7 @@ class RenderUsers extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/user_skills/${this.props.skill.id}`,{
+    fetch(`https://handy-dandy-app.herokuapp.com/user_skills/${this.props.skill.id}`,{
       headers: {
         'Authorization': `${localStorage.token}`
       }
@@ -24,7 +24,6 @@ class RenderUsers extends React.Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <div onClick={()=>this.props.skillInfo(this.props.skill)}>
         <p>

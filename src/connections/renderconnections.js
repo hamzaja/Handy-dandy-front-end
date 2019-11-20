@@ -8,7 +8,7 @@ class RenderFollowedUsers extends React.Component {
 
 
   componentDidMount(){
-    fetch(`http://localhost:3000/users/${this.props.userId}`, {
+    fetch(`https://handy-dandy-app.herokuapp.com/users/${this.props.userId}`, {
       headers: {
         "Authorization":`${localStorage.token}`
       }

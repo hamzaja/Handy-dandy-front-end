@@ -19,7 +19,7 @@ class SignUpPage extends React.Component {
   submit = (e) => {
     e.preventDefault()
     e.target.reset()
-    fetch('http://localhost:3000/signup',{
+    fetch('https://handy-dandy-app.herokuapp.com/signup',{
       method: "POST",
       headers: {
         'Content-Type': 'application/json',
@@ -34,7 +34,7 @@ class SignUpPage extends React.Component {
         localStorage.token = data.token
         this.props.history.push('/finish-sign-up')
 
-        fetch('http://localhost:3000/profile',{
+        fetch('https://handy-dandy-app.herokuapp.com/profile',{
           headers: {
           'Authorization': `${localStorage.token}`
       }

@@ -36,7 +36,7 @@ class RenderUsers extends React.Component {
 
   makeABooking = (e) => {
     e.preventDefault()
-    // fetch("http://localhost:3000/bookings",{
+    // fetch("https://handy-dandy-app.herokuapp.com/bookings",{
     //   method:'POST',
     //   headers: {
     //     'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ class RenderUsers extends React.Component {
     //   })
     // })
 
-    fetch("http://localhost:3000/bookings",{
+    fetch("https://handy-dandy-app.herokuapp.com/bookings",{
       method:'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ class RenderUsers extends React.Component {
   }
 
   addConnection=()=>{
-    fetch("http://localhost:3000/connections",{
+    fetch("https://handy-dandy-app.herokuapp.com/connections",{
       method:'POST',
       headers: {
         'Content-Type': 'application/json',

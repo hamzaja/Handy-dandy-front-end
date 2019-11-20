@@ -20,7 +20,7 @@ class Profile extends React.Component {
 
 componentDidMount() {
   if (localStorage.token) {
-    fetch('http://localhost:3000/profile',{
+    fetch('https://handy-dandy-app.herokuapp.com/profile',{
       headers: {
       'Authorization': `${localStorage.token}`
   }

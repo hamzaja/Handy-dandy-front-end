@@ -7,6 +7,8 @@ html,body {
   flex-wrap: wrap;
   align-items: center;
   font-family: 'Open Sans Condensed', sans-serif;
+
+
 }
 
 .col {
@@ -48,25 +50,26 @@ p.main {
   width: 63.5%;
   height: 100%;
   right: 36.8%;
-  color: White
+  color: blue;
 
 }
 
 
 /* ------------ login page ---------------- */
 .login {
-  background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg");
+  /* background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg"); */
   color: blue;
   position: absolute;
   right: 0%;
   width: 35%;
   border: 3px solid #73AD21;
   padding: 10px;
+  background: lightgreen;
 }
 
 /* ------------ sign up page ---------------- */
 .signup {
-  background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg");
+  /* background-image: url("http://4designer.t7yb.net/files/2012121302/Cute-hedgehog-construction-workers-vector-material-21340.jpg"); */
   position: absolute ;
   color: brown;
   top: 40%;
@@ -74,6 +77,8 @@ p.main {
   width: 35%;
   border: 3px solid #73AD21;
   padding: 10px;
+  background: lightgreen;
+
 }
 
 

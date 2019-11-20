@@ -14,7 +14,7 @@ class LoginPage extends Component {
     console.log(this.state)
     e.preventDefault()
     e.target.reset()
-    fetch('http://localhost:3000/login', {
+    fetch('https://handy-dandy-app.herokuapp.com/login', {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
@@ -24,7 +24,6 @@ class LoginPage extends Component {
     })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
       if (data.token) {
         localStorage.token = data.token
         this.props.history.push('/profile')

@@ -10,7 +10,6 @@ class MyBookings extends React.Component {
   }
 
   render() {
-    console.log(this.props.bookings)
     return (
     this.props.user.booked_users?
       <div className = 'my-bookings' >

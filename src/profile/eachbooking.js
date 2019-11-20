@@ -6,7 +6,7 @@ class MyBookings extends React.Component {
   }
 
   componentDidMount(){
-    fetch(`http://localhost:3000/users/${this.props.booking.other_user_id}`, {
+    fetch(`https://handy-dandy-app.herokuapp.com/users/${this.props.booking.other_user_id}`, {
       headers: {
         "Authorization":`${localStorage.token}`
       }

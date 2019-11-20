@@ -16,7 +16,7 @@ class AddExperience extends React.Component {
   }
 
   submit = (e) => {
-    fetch("http://localhost:3000/user_skills",{
+    fetch("https://handy-dandy-app.herokuapp.com/user_skills",{
       method:'POST',
       headers: {
         "Content-Type": 'application/json',

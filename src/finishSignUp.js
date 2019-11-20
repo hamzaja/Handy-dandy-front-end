@@ -10,7 +10,7 @@ class App extends React.Component {
   }
 
   componentDidMount(){
-    fetch('http://localhost:3000/skills',{
+    fetch('https://handy-dandy-app.herokuapp.com/skills',{
       headers: {
         'Authorization': `${localStorage.token}`
       }

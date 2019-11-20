@@ -25,7 +25,7 @@ class Messages extends React.Component {
     let abc;
     let messageContainer;
     abc = [this.props.currentUser.username,otherUser.username,this.props.currentUser.id,otherUser.id].sort().join()
-    fetch("http://localhost:3000/messages",{
+    fetch("https://handy-dandy-app.herokuapp.com/messages",{
       headers:{
         'Authorization': `${localStorage.token}`
       }
@@ -33,7 +33,7 @@ class Messages extends React.Component {
     .then(messageBoxes => {
       messageContainer = messageBoxes.filter(messageBox => messageBox.name === abc )
       if(messageContainer.length === 0){
-        fetch("http://localhost:3000/messages",{
+        fetch("https://handy-dandy-app.herokuapp.com/messages",{
           method: 'POST',
           headers:{
             'Content-Type':'application/json',
@@ -55,7 +55,7 @@ class Messages extends React.Component {
   }
 
   abc = () => {
-    fetch(`http://localhost:3000/user_messages/${this.state.messageBox.id}`,{
+    fetch(`https://handy-dandy-app.herokuapp.com/user_messages/${this.state.messageBox.id}`,{
       headers: {
         "Authorization":`${localStorage.token}`
       }
