@@ -14,7 +14,7 @@ class AllSkill extends React.Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/profile',{
+    fetch('https://handy-dandy-app.herokuapp.com/profile',{
       headers: {
       'Authorization': `${localStorage.token}`
   }
@@ -47,7 +47,7 @@ class AllSkill extends React.Component {
  }
 
  submit = () => {
-   fetch("http://localhost:3000/skills",{
+   fetch("https://handy-dandy-app.herokuapp.com/skills",{
      method:'POST',
      headers: {
        'Authorization': `${localStorage.token}`,

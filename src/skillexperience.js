@@ -11,7 +11,6 @@ class SkillExperience extends React.Component {
 
 
   nextIndex = () => {
-    console.log(this.state.index ,this.props.skills.length )
     if (this.state.index < this.props.skills.length-1){
       this.setState({index : this.state.index+1})
     }

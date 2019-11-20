@@ -15,7 +15,7 @@ class AllUsers extends React.Component {
 
   componentDidMount(){
     this.props.removeusers()
-    fetch("http://localhost:3000/users",{
+    fetch("https://handy-dandy-app.herokuapp.com/users",{
       headers:{
         'Authorization': `${localStorage.token}`
       }
